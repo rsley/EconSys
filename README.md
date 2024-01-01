@@ -1,7 +1,8 @@
-# EconSys
+# <p align="center">EconSys</p>
 A more complex economy system
 - MIT Licensed
 - Made by Rafael Soley R. ( https://github.com/rsley )
+---
 
 ### Setup and Installation
 Documentation pending.
