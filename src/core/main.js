@@ -43,7 +43,7 @@ client.once("ready", () => {
     events: {
       dir: join(__dirname, "../runner/events"),
     },
-    mongoUri: process.env.MONGO_URI || "",
+    mongoUri: process.env.MONGO || "",
     testServers: ["1191120386822250527"],
     botOwners: config.owners,
     disabledDefaultCommands: [

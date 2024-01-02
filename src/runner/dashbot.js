@@ -8,16 +8,34 @@
   Made with Discord-Dashboard by Assistants Center
  */
 
+//-- Imports --\\
+const guildPrefix = require("../db/models/guild-prefix")
+
 //-- Dashboard --\\
 module.exports = (Dashboard) => {
-    logger("Error", "Dashbot", "Dashbot is not yet supported.")
-    Dashboard.DBDEvents.on("guildSettingsUpdated", ({ user, changes, guildId }) => {
+    logger("Success", "Dashbot", "Initialized Dashbot and globalized the Dashboard.")
+    Dashboard.DBDEvents.on("guildSettingsUpdated", async (object) => {
+        const { changes, user } = object
+        console.log(object)
         const keyChanged = changes.successes[0]
 
         if (keyChanged.toLowerCase() === "prefix") {
-            const newPrefix = Handler.fetch(guildId, "prefix")
+            const newPrefix = await Handler.fetch(guildId, "prefix")
             logger("Info", "Dashbot", `Prefix for ${guildId} changed to ${newPrefix} by ${user.tag} (${user.id})`);
             //instance.setPrefix({ id: guildId }, newPrefix)
+            const found = await guildPrefix.findOne({ id: guildId })
+            if (found) {
+                found.prefix = newPrefix
+                found.save()
+            } else {
+                const newGuildPrefix = new guildPrefix({
+                    id: guildId,
+                    prefix: newPrefix
+                })
+                newGuildPrefix.save()
+            }
+
+            logger("Info", "Dashbot", `Prefix for ${guildId} changed to ${newPrefix} by ${user.tag} (${user.id})`);
         }
     })
 

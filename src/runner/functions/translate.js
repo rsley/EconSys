@@ -6,8 +6,10 @@
   └─────────────────────────────────────────────────────────────────────────┘
  */
 
+  //-- Imports --\\
 const translateG = require("translate-google")
 
+//-- Exports --\\
 module.exports = async (text, lang) => {
     if (!text) return
     if (!lang) lang = "es"

@@ -2,10 +2,22 @@
 A more complex economy system
 - MIT Licensed
 - Made by Rafael Soley R. ( https://github.com/rsley )
+- Join our <a href="https://rsluxury.xyz/discord">Discord Server</a>
 ---
 
 ## Additional Credits
-Web Dashboard mainly made using `Discord-Dashboard` by <a href="https://assistantscenter.com">Assistants Center</a><br/>Dashboard UI Theme by <a href="https://github.com/PlainDevelopment">PlainDevelopment<a/>, <a href="https://github.com/iMidnights">iMidnight</a>, and <a href="https://github.com/DJKnaeckebrot">DjKnaeckebrot</a><br/>Web Dashboard developed by <a href="https://github.com/breftejk">Breathtake<a/><br/><br/>I do not take credit for the code or information stored in the Dashboard except for the parts which I modified which are not included in the original Discord-Dashboard project. Before reproducing, modifying, or using this proyect, you must acquire a <a href="https://assistantscenter.com/discord-dashboard/v2">Software License for Discord-Dashboard.<a/><br/>I made *some* modifications to the Dashboard; however, the original credits for it go to the ones mentioned below and the rest of the team over at Assistants Center.
+Web Dashboard mainly made using `Discord-Dashboard` by <a href="https://assistantscenter.com">Assistants Center</a>
+- Dashboard UI Theme by <a href="https://github.com/PlainDevelopment">PlainDevelopment<a/>, <a href="https://github.com/iMidnights">iMidnight</a>, and <a href="https://github.com/DJKnaeckebrot">DjKnaeckebrot</a>
+- Web Dashboard developed by <a href="https://github.com/breftejk">Breathtake</a>
+
+<br/>I do not take credit for the code in the Dashboard except for the parts which I modified which are not included in the original Discord-Dashboard project. Before reproducing, modifying, or forking this project, you must acquire a <a href="https://assistantscenter.com/discord-dashboard/v2">Software License for Discord-Dashboard.</a><br/><br/>I made *some* modifications to the Dashboard, like those found at `modstore/dbd-soft-ui` and `modstore`; however, the original credits for it go to the ones mentioned below and the rest of the team over at Assistants Center.
+
+### Special Thanks
+- To my High School Mathematics professor, Miss. Lisa Bickford.
+- To my school's Academic Directors, Angela Jarman and Flor Morado.
+- To my Technology, Innovation, and Robotics professor, Eva Melo.
+- To Lt. Col. Bickford for inspiring me to continue my extracurricular carreer and for being a role model through High School, as well as teaching me Statistics.
+- To the rest of my School's Board for always allowing me to expand my extracurricular activities within the school.
 
 ### Setup and Installation
 Documentation pending.
@@ -99,6 +111,8 @@ This proyect applies many economic concepts that I am interested in, which inclu
 
 
 ### Disclaimer
+**The copyright notices and this permission notice shall be included in all copies or substantial portions of the Software.**
+
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE

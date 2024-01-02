@@ -23,6 +23,7 @@ const Handler = new DBD.Handler(process.env.MONGO);
 
   const Dashboard = new DBD.Dashboard({
     useThemeMaintenance: true,
+    minimizedConsoleLogs: true,
     underMaintenanceAccessKey: process.env.KEY,
     underMaintenance: {
       title: "Under Maintenance",
@@ -30,7 +31,7 @@ const Handler = new DBD.Handler(process.env.MONGO);
       texts: [
         "We still want to change for the better for you.",
         "Therefore, we are introducing technical updates so that we can allow you to enjoy the quality of our services.",
-        'Come back to us later or join our <a href="#">Discord Support Server</a>',
+        'Come back to us later or join our <a href="https://discord.gg/anEr9Rerxu">Discord Support Server</a>',
       ],
       infoCards: [
         {
