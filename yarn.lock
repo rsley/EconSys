@@ -562,6 +562,14 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
+"@keyv/mongo@^2.2.8":
+  version "2.2.8"
+  resolved "https://registry.yarnpkg.com/@keyv/mongo/-/mongo-2.2.8.tgz#683631ac422fc19d912e45fa953b6959e6491a3b"
+  integrity sha512-2y8RXQDzCUzvhkzjH0bj4+Ur9Ce+x9PjNrV6KnGGpRocexFKVgOYexIegnEc/DBy6HhNyqUlgWOpuFfnhpmF+A==
+  dependencies:
+    mongodb "^4.5.0"
+    pify "^5.0.0"
+
 "@keyv/sqlite@^3.6.5":
   version "3.6.6"
   resolved "https://registry.yarnpkg.com/@keyv/sqlite/-/sqlite-3.6.6.tgz#cf6e1a50fa2a6412d13a290a19af76e7839102a1"
@@ -2405,7 +2413,7 @@ mongodb-connection-string-url@^2.6.0:
     "@types/whatwg-url" "^8.2.1"
     whatwg-url "^11.0.0"
 
-mongodb@4.17.2:
+mongodb@4.17.2, mongodb@^4.5.0:
   version "4.17.2"
   resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-4.17.2.tgz#237c0534e36a3449bd74c6bf6d32f87a1ca7200c"
   integrity sha512-mLV7SEiov2LHleRJPMPrK2PMyhXFZt2UQLC4VD4pnth3jMjYKHhtqfwwkkvS/NXuo/Fp3vbhaNcXrIDaLRb9Tg==
@@ -2660,6 +2668,11 @@ picomatch@^2.0.4, picomatch@^2.2.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
+
+pify@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/pify/-/pify-5.0.0.tgz#1f5eca3f5e87ebec28cc6d54a0e4aaf00acc127f"
+  integrity sha512-eW/gHNMlxdSP6dmG6uJip6FXN0EQBwm2clYYd8Wul42Cwu/DK8HEftzsapcNdYe2MfLiIwZqsDk2RDEsTE79hA==
 
 promise-inflight@^1.0.1:
   version "1.0.1"

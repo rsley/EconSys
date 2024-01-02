@@ -4,6 +4,9 @@ A more complex economy system
 - Made by Rafael Soley R. ( https://github.com/rsley )
 ---
 
+## Additional Credits
+Web Dashboard mainly made using `Discord-Dashboard` by <a href="https://assistantscenter.com">Assistants Center</a><br/>Dashboard UI Theme by <a href="https://github.com/PlainDevelopment">PlainDevelopment<a/>, <a href="https://github.com/iMidnights">iMidnight</a>, and <a href="https://github.com/DJKnaeckebrot">DjKnaeckebrot</a><br/>Web Dashboard developed by <a href="https://github.com/breftejk">Breathtake<a/><br/><br/>I do not take credit for the code or information stored in the Dashboard except for the parts which I modified which are not included in the original Discord-Dashboard project. Before reproducing, modifying, or using this proyect, you must acquire a <a href="https://assistantscenter.com/discord-dashboard/v2">Software License for Discord-Dashboard.<a/><br/>I made *some* modifications to the Dashboard; however, the original credits for it go to the ones mentioned below and the rest of the team over at Assistants Center.
+
 ### Setup and Installation
 Documentation pending.
 

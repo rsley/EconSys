@@ -6,6 +6,7 @@
   "author": "Rafael Soley R. <rafaelsoley.multiple@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@keyv/mongo": "^2.2.8",
     "dbd-soft-ui": "^1.7.18-beta.1",
     "discord-dashboard": "^2.3.62",
     "dotenv": "^16.3.1",

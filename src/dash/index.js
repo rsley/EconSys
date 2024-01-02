@@ -1,7 +1,7 @@
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ ECONSYS DASHBOARD                                                       │
-  │ v2.1.2                                                                  │
+  │ v1.0.2                                                                  │
   │ Copyright(c) Rafael Soley                                               │
   └─────────────────────────────────────────────────────────────────────────┘
 
@@ -14,7 +14,7 @@ const { port, domain, redirectUri, license } = require("../config").dash;
 
 //-- Dashboard --\\
 let DBD = require("discord-dashboard");
-const Handler = new DBD.Handler();
+const Handler = new DBD.Handler(process.env.MONGO);
 
 //-- Setup --\\
 (async () => {
@@ -51,7 +51,7 @@ const Handler = new DBD.Handler();
       ]
     },
     underMaintenanceAccessPage: "/dev-saccess",
-    useUnderMaintenance: true,
+    useUnderMaintenance: false,
     port,
     client: config.client,
     redirectUri,
@@ -70,23 +70,46 @@ const Handler = new DBD.Handler();
           };
         },
       },
+      createdBy: "Rafael Soley",
+      websiteTitle: "ECONSYS",
       websiteName: "ECONSYS",
-      colorScheme: "blue",
+      websiteUrl: "https://rsluxury.xyz",
+      dashboardUrl: "https://econsys.xyz",
       supporteMail: "support@rsluxury.xyz",
+      supportServer: "https://discord.gg/anEr9Rerxu",
+      colorScheme: "red",
       icons: {
         favicon:
-          "https://assistantscenter.com/wp-content/uploads/2021/11/cropped-cropped-logov6.png",
+          "https://rsluxury.xyz/assets/rs-favi2.ico",
         noGuildIcon:
           "https://pnggrid.com/wp-content/uploads/2021/05/Discord-Logo-Circle-1024x1024.png",
         sidebar: {
-          darkUrl: "https://assistantscenter.com/img/logo.png",
-          lightUrl: "https://assistanscenter.com/img/logo.png",
+          darkUrl: "https://rsluxury.xyz/assets/rs-2.png",
+          lightUrl: "https://rsluxury.xyz/assets/rs-2.png",
           hideName: true,
           borderRadius: false,
           alignCenter: true,
         },
       },
       index: {
+        card: {
+          category: "General",
+          title: "Bot ping",
+          image: "https://rsluxury.xyz/assets/rs-2.png",
+          footer: "Footer text"
+        },
+        information: {
+          category: 'Info',
+          title: 'Information',
+          description: 'Description Text',
+          footer: 'Footer Text',
+        },
+        feeds: {
+          category: 'Category',
+          title: 'Feed Title',
+          description: 'Description Text',
+          footer: 'Footer Text',
+        },
         graph: {
           enabled: true,
           lineGraph: false,
@@ -102,7 +125,7 @@ const Handler = new DBD.Handler();
         },
       },
       preloader: {
-        image: "/img/soft-ui.webp",
+        image: "https://rsluxury.xyz/assets/rs-2.png",
         spinner: true,
         text: "Loading...",
       },
@@ -140,8 +163,10 @@ const Handler = new DBD.Handler();
   });
   Dashboard.init();
 
+  require("../runner/dashbot")(Dashboard)
+
   module.exports = Dashboard;
 })();
 
 //-- Global --\\
-global.Handler = Handler;
+module.exports.Handler = Handler;

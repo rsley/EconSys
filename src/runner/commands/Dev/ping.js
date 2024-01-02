@@ -20,7 +20,6 @@ module.exports = {
     
     minArgs: 0,
     maxArgs: -1,
-    correctSyntax: "Correct syntax: {PREFIX}{COMMAND} {ARGS}",
     expectedArgs: "<num1> <num2>",
     
     options: [],
@@ -31,7 +30,7 @@ module.exports = {
     reply: true,
     delete: false,
 
-    callback: ({
+    callback: async ({
         client,
         instance,
         message,
@@ -47,6 +46,9 @@ module.exports = {
     }) => {
         const ping = client.ws.ping;
         const latency = api.ping
+
+        const { findValue } = require("../../dashbot")
+        const val = await findValue("1191120386822250527", "lang")
 
         return `🏓 Discord: \`${ping}ms\` | API: \`${latency}ms\` 🏓`
     },

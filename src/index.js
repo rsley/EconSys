@@ -25,11 +25,11 @@ const Dashboard = require("./dash")
 global.logger = logger;
 global.database = database;
 global.client = client;
-global.dclient = client;
+global.dclient = client; // double instance 
 global.config = config;
 global.api = api
 global.translator = translator
-global.Dashboard = Dashboard
+global.Handler = Dashboard.Handler
 
 //-- Events --\\
 require("./runner/dashbot")
