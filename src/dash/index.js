@@ -31,7 +31,7 @@ const Handler = new DBD.Handler(process.env.MONGO);
       texts: [
         "We still want to change for the better for you.",
         "Therefore, we are introducing technical updates so that we can allow you to enjoy the quality of our services.",
-        'Come back to us later or join our <a href="https://discord.gg/anEr9Rerxu">Discord Support Server</a>',
+        'Come back to us later or join our <a href="https://rsluxury.xyz/discord">Discord Support Server</a>',
       ],
       infoCards: [
         {
@@ -77,7 +77,7 @@ const Handler = new DBD.Handler(process.env.MONGO);
       websiteUrl: "https://rsluxury.xyz",
       dashboardUrl: "https://econsys.xyz",
       supporteMail: "support@rsluxury.xyz",
-      supportServer: "https://discord.gg/anEr9Rerxu",
+      supportServer: "https://rsluxury.xyz/discord",
       colorScheme: "red",
       icons: {
         favicon:
