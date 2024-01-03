@@ -14,10 +14,10 @@ const guildPrefix = require("../db/models/guild-prefix")
 //-- Dashboard --\\
 module.exports = (Dashboard) => {
     logger("Success", "Dashbot", "Initialized Dashbot and globalized the Dashboard.")
-    Dashboard.DBDEvents.on("guildSettingsUpdated", async (object) => {
-        const { changes, user } = object
-        console.log(object)
+    Dashboard.DBDEvents.on("guildSettingsUpdated", async (obj) => {
+        const {changes, user, guildId} = obj
         const keyChanged = changes.successes[0]
+        console.log(obj)
 
         if (keyChanged.toLowerCase() === "prefix") {
             const newPrefix = await Handler.fetch(guildId, "prefix")
