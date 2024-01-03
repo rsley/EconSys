@@ -75,5 +75,5 @@ async function npmThemeCheck() {
 exports.update = async () => {
     await npmDashCheck()
 
-    if(allUpdated) console.log(`${consolePrefix}${'All the packages are '.cyan} ${'up-to-date'.green}${'!'.cyan}`)
+    if(allUpdated) console.log(`${consolePrefix}${'All the packages are '.cyan}${'up-to-date'.green}${'!'.cyan}`)
 }
