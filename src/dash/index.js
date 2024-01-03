@@ -3,6 +3,8 @@
   │ ECONSYS DASHBOARD                                                       │
   │ v1.0.2                                                                  │
   │ Copyright(c) Rafael Soley                                               │
+  | The above copyright notice and this permission shall be included in all |
+  | copies or substantial portions of the Software.                         |
   └─────────────────────────────────────────────────────────────────────────┘
 
   Made with Discord-Dashboard by Assistants Center
@@ -24,6 +26,7 @@ const Handler = new DBD.Handler(process.env.MONGO);
   const Dashboard = new DBD.Dashboard({
     useThemeMaintenance: true,
     minimizedConsoleLogs: true,
+    acceptPrivacyPolicy: true,
     underMaintenanceAccessKey: process.env.KEY,
     underMaintenance: {
       title: "Under Maintenance",

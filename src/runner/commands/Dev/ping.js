@@ -3,7 +3,7 @@ const { CommandType, CooldownTypes } = require("wokcommands")
 module.exports = {
     type: CommandType.BOTH,
     init: (client, instance) => {},
-    description: "Add your description here",
+    description: "Show the bot's latency",
     aliases: [],
 
     testOnly: false,

@@ -3,6 +3,8 @@
   │ ECONSYS DASHBOARD MANAGER BOT                                           │
   │ v1.0.4                                                                  │
   │ Copyright(c) Rafael Soley                                               │
+  | The above copyright notice and this permission shall be included in all |
+  | copies or substantial portions of the Software.                         |
   └─────────────────────────────────────────────────────────────────────────┘
 
   Made with Discord-Dashboard by Assistants Center

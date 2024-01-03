@@ -3,6 +3,8 @@
   │ ECONSYS INDEX GLOBAL                                                    │
   │ v1.0.1                                                                  │
   │ Copyright(c) Rafael Soley                                               │
+  | The above copyright notice and this permission shall be included in all |
+  | copies or substantial portions of the Software.                         |
   └─────────────────────────────────────────────────────────────────────────┘
  */
 
