@@ -51,7 +51,7 @@ async function setProfile(id, guildId, data) {
         id,
         guildId
     }, data)
-    profileD.save()
+    profile.save()
 
     return profile
 }

@@ -13,6 +13,7 @@ const mongoose = require("mongoose");
 const logger = require("../core/logger");
 
 //-- Database --\\
+mongoose.set("strictQuery", true)
 mongoose.connect(process.env.MONGO);
 
 //-- Database Events --\\
