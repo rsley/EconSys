@@ -2,7 +2,9 @@
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ ECONSYS CONFIG                                                          │
   │ v1.0.0                                                                  │
-  │ Copyright(c) Rafael Soley                                               │
+  │ Copyright 2023-2024 Rafael Soley                                        │
+  │ Licensed under the Apache License, Version 2.0 (the "License");         │
+  │                                                                         │        
   | The above copyright notice and this permission shall be included in all |
   | copies or substantial portions of the Software.                         |
   └─────────────────────────────────────────────────────────────────────────┘
@@ -24,5 +26,12 @@ module.exports.embed = {
     text: "Copyright (c) EconSys",
     iconURL: "https://rsluxury.xyz/assets/rs-2.png",
   },
+}
+module.exports.db = {
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  name: process.env.DB_NAME,
 }
 module.exports.owners = ["881922017887154226"]

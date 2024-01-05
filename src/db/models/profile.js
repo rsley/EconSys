@@ -1,103 +1,100 @@
-const { Schema, model, SchemaTypes } = require("mongoose");
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ ECONSYS PROFILE MODEL.                                                  │
+  │ v1.0.0                                                                  │
+  │ Copyright 2023-2024 Rafael Soley                                        │
+  │ Licensed under the Apache License, Version 2.0 (the "License");         │
+  │                                                                         │        
+  | The above copyright notice and this permission shall be included in all |
+  | copies or substantial portions of the Software.                         |
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
 
-const profileSchema = new Schema({
+//-- Imports --\\
+const { DataTypes } = require("sequelize");
+const { sequelize } = require("../index");
+
+//-- Profile --\\
+const Profile = sequelize.define("Profile", {
   id: {
-    type: String,
-    required: true,
+    type: DataTypes.STRING,
+    primaryKey: true,
+    allowNull: false,
     unique: true,
   },
   guildId: {
-    type: String,
-    required: true,
+    type: DataTypes.STRING,
+    allowNull: false,
   },
   economicInformation: {
-    income: {
-      type: SchemaTypes.Number,
-      default: 0,
-    },
-    debts: {
-      type: SchemaTypes.Number,
-      default: 0,
-    },
-    netWorth: {
-      type: SchemaTypes.Number,
-      default: 30000,
+    type: DataTypes.JSON, // Use DataTypes.JSON for compatibility with MySQL
+    defaultValue: {
+      income: 0,
+      debts: 0,
+      netWorth: 30000,
     },
   },
   education: {
-    educationLevel: {
-      type: SchemaTypes.Number,
-      default: 1,
-    }, // 1: High School, 2: Associate's Degree, 3: Bachelor's Degree, 4: Master's Degree, 5: Doctorate (Ph.D.)
-    universityAttended: {
-      type: String,
-      default: "None",
+    type: DataTypes.JSON,
+    defaultValue: {
+      educationLevel: 1,
+      universityAttended: "None", // 1: High School, 2: Associate's Degree, 3: Bachelor's Degree, 4: Master's Degree, 5: Doctorate (Ph.D.)
     },
   },
   career: {
-    profession: {
-      type: String,
-      default: "Unemployed",
-    },
-    businessOwnership: {
-      type: Boolean,
-      default: false,
+    type: DataTypes.JSON,
+    defaultValue: {
+      profession: "Unemployed",
+      businessOwnership: false,
     },
   },
   bankingAndInvestments: {
-    bankAccountBalance: {
-      type: SchemaTypes.Number,
-      default: 30000,
-    },
-    stockPortfolio: {
-      type: [String],
-      default: [],
-    },
-    bondsPortfolio: {
-      type: [String],
-      default: [],
+    type: DataTypes.JSON,
+    defaultValue: {
+      bankAccountBalance: 30000,
+      stockPortfolio: [],
+      bondsPortfolio: [],
     },
   },
   governmentAndPolitics: {
-    governmentPosition: {
-      type: String,
-      default: "Citizen",
-    },
-    votingRecord: {
-      type: [String],
-      default: [],
+    type: DataTypes.JSON,
+    defaultValue: {
+      governmentPosition: "Citizen",
+      votingRecord: [],
     },
   },
   internationalInteractions: {
-    ibsAccountDetails: {
-      type: SchemaTypes.ObjectId,
-      ref: "CentralBank",
-    },
-    currencyExchangeTransactions: {
-      type: [String],
-      default: [],
-    },
+    type: DataTypes.JSON,
+    defaultValue: {
+      currencyExchangeTransactions: [],
+    }
   },
   businessOwnershipDetails: {
-    businessName: String,
-    businessSector: String,
-    businessRevenue: {
-      type: SchemaTypes.Number,
-      default: 0,
+    type: DataTypes.JSON,
+    defaultValue: {
+      businessName: "None",
+      businessSector: "None",
+      businessRevenue: 0,
     },
   },
   economicReports: {
-    personalEconomicReport: {
-      type: [String],
-      default: [],
+    type: DataTypes.JSON,
+    defaultValue: {
+      personalEconomicReport: [],
     },
   },
   achievements: {
-    awardsAndRecognitions: {
-      type: [String],
-      default: [],
+    type: DataTypes.JSON,
+    defaultValue: {
+      awardsAndRecognitions: [],
     },
   },
 });
 
-module.exports = model("profiles", profileSchema);
+//-- Sync --\\
+(async () => {
+  await Profile.sync();
+})()
+
+//-- Export --\\
+module.exports = Profile;

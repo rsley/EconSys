@@ -1,29 +1,34 @@
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │ ECONSYS MULTI LANG : TRANSLATOR                                         │
+  │ ECONSYS CONFIG                                                          │
   │ v1.0.0                                                                  │
   │ Copyright 2023-2024 Rafael Soley                                        │
   │ Licensed under the Apache License, Version 2.0 (the "License");         │
-  │                                                                         │        
+  │                                                                         │
   | The above copyright notice and this permission shall be included in all |
   | copies or substantial portions of the Software.                         |
   └─────────────────────────────────────────────────────────────────────────┘
- */
+  */
 
-  //-- Imports --\\
-const translateG = require("translate-google")
-
-//-- Exports --\\
-module.exports = async (text, lang) => {
-    if (!text) return
-    if (!lang) lang = "es"
-
-    let t = await translateG(text, { to: lang })
-    return t
-}
-module.exports.lang = async (guildId) => {
-  let lang = await Handler.fetch(guildId, "lang") || "English"
-
-  if (lang === "English") return "en"
-  if (lang === "Spanish") return "es"
-}
+  const { formTypes } = require("discord-dashboard")
+  module.exports = [
+    new Handler.Category()
+      .setId("setup")
+      .setName("Setup")
+      .setDescription("Setup your bot.")
+      .setToggleable(false)
+      .addOptions(
+        new Handler.Option()
+          .setId("lang")
+          .setName("Language")
+          .setDescription("Change the language of the bot.")
+          .setType(
+            formTypes.select({ English: "English", Spanish: "Spanish" })
+          ),
+        new Handler.Option()
+          .setId("prefix")
+          .setName("Prefix")
+          .setDescription("Change the prefix of the bot.")
+          .setType(formTypes.input("!"))
+      ),
+  ]

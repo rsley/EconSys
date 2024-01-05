@@ -1,8 +1,10 @@
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ ECONSYS DASHBOARD                                                       │
-  │ v1.0.2                                                                  │
-  │ Copyright(c) Rafael Soley                                               │
+  │ v1.0.0                                                                  │
+  │ Copyright 2023-2024 Rafael Soley                                        │
+  │ Licensed under the Apache License, Version 2.0 (the "License");         │
+  │                                                                         │        
   | The above copyright notice and this permission shall be included in all |
   | copies or substantial portions of the Software.                         |
   └─────────────────────────────────────────────────────────────────────────┘
@@ -16,7 +18,7 @@ const { port, domain, redirectUri, license } = require("../config").dash;
 
 //-- Dashboard --\\
 let DBD = require("discord-dashboard");
-const Handler = new DBD.Handler(process.env.MONGO);
+const Handler = new DBD.Handler(`mysql://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`);
 
 //-- Setup --\\
 (async () => {
@@ -141,29 +143,9 @@ const Handler = new DBD.Handler(process.env.MONGO);
           serverUUIDs: [],
         },
       },
-      commands: [],
+      commands: require("./commands"),
     }),
-    settings: [
-      new Handler.Category()
-        .setId("setup")
-        .setName("Setup")
-        .setDescription("Setup your bot.")
-        .setToggleable(false)
-        .addOptions(
-          new Handler.Option()
-            .setId("lang")
-            .setName("Language")
-            .setDescription("Change the language of the bot.")
-            .setType(
-              DBD.formTypes.select({ English: "English", Spanish: "Spanish" })
-            ),
-          new Handler.Option()
-            .setId("prefix")
-            .setName("Prefix")
-            .setDescription("Change the prefix of the bot.")
-            .setType(DBD.formTypes.input("!"))
-        ),
-    ],
+    settings: require("./settings")
   });
   Dashboard.init();
 

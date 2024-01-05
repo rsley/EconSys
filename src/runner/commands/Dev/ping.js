@@ -1,10 +1,22 @@
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ ECONSYS PING COMMAND                                                    │
+  │ v1.0.0                                                                  │
+  │ Copyright 2023-2024 Rafael Soley                                        │
+  │ Licensed under the Apache License, Version 2.0 (the "License");         │
+  │                                                                         │        
+  | The above copyright notice and this permission shall be included in all |
+  | copies or substantial portions of the Software.                         |
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+
 const { CommandType, CooldownTypes } = require("wokcommands")
 
 module.exports = {
     type: CommandType.BOTH,
     init: (client, instance) => {},
     description: "Show the bot's latency",
-    aliases: [],
+    aliases: ["p"],
 
     testOnly: false,
     guildOnly: false,

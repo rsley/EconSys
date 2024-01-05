@@ -1,8 +1,10 @@
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ ECONSYS DASHBOARD MANAGER BOT                                           │
-  │ v1.0.4                                                                  │
-  │ Copyright(c) Rafael Soley                                               │
+  │ v1.0.0                                                                  │
+  │ Copyright 2023-2024 Rafael Soley                                        │
+  │ Licensed under the Apache License, Version 2.0 (the "License");         │
+  │                                                                         │        
   | The above copyright notice and this permission shall be included in all |
   | copies or substantial portions of the Software.                         |
   └─────────────────────────────────────────────────────────────────────────┘
@@ -22,6 +24,7 @@ module.exports = (Dashboard) => {
         if (keyChanged.toLowerCase() === "prefix") {
             const newPrefix = await Handler.fetch(guildId, "prefix")
             //instance.setPrefix({ id: guildId }, newPrefix)
+            instance.commandHandler.prefixHandler.set(guildId, newPrefix);
             const found = await guildPrefix.findOne({ _id: guildId })
             if (found) {
                 found.prefix = newPrefix

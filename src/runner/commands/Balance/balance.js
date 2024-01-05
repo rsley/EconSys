@@ -1,3 +1,15 @@
+/* 
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ ECONSYS BAL COMMAND                                                     │
+  │ v1.0.0                                                                  │
+  │ Copyright 2023-2024 Rafael Soley                                        │
+  │ Licensed under the Apache License, Version 2.0 (the "License");         │
+  │                                                                         │        
+  | The above copyright notice and this permission shall be included in all |
+  | copies or substantial portions of the Software.                         |
+  └─────────────────────────────────────────────────────────────────────────┘
+ */
+
 const { CommandType, CooldownTypes } = require("wokcommands")
 const { ApplicationCommandOptionType, EmbedBuilder } = require("discord.js")
 const profile = require("../../functions/prof")
@@ -65,7 +77,7 @@ module.exports = {
             .setTitle("Balance")
             .setColor(require('random-hex-color')())
             .setAuthor({
-                name: `${target.tag}'s Balance`,
+                name: `${target.tag}`,
                 iconURL: `https://cdn.discordapp.com/avatars/${target.id}/${target.avatar}.png`
             })
             .setDescription(desc)

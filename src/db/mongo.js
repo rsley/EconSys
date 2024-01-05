@@ -1,6 +1,6 @@
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │ ECONSYS MULTI LANG : TRANSLATOR                                         │
+  │ ECONSYS DATABASE                                                        │
   │ v1.0.0                                                                  │
   │ Copyright 2023-2024 Rafael Soley                                        │
   │ Licensed under the Apache License, Version 2.0 (the "License");         │
@@ -10,20 +10,24 @@
   └─────────────────────────────────────────────────────────────────────────┘
  */
 
-  //-- Imports --\\
-const translateG = require("translate-google")
+//-- Imports --\\
+const mongoose = require("mongoose");
+const logger = require("../core/logger");
 
-//-- Exports --\\
-module.exports = async (text, lang) => {
-    if (!text) return
-    if (!lang) lang = "es"
+//-- Database --\\
+mongoose.set("strictQuery", true)
+mongoose.connect(process.env.MONGO);
 
-    let t = await translateG(text, { to: lang })
-    return t
-}
-module.exports.lang = async (guildId) => {
-  let lang = await Handler.fetch(guildId, "lang") || "English"
+//-- Database Events --\\
+mongoose.connection.on("connected", () => {
+  logger("Success", "Database", "Connected to MongoDB");
+});
+mongoose.connection.on("error", (e) => {
+  logger("Error", "Database", `Error connecting to MongoDB: ${e}`);
+});
+mongoose.connection.on("disconnected", () => {
+  logger("Info", "Database", "Disconnected from MongoDB");
+});
 
-  if (lang === "English") return "en"
-  if (lang === "Spanish") return "es"
-}
+//-- Database Wrapper --\\
+module.exports = mongoose;

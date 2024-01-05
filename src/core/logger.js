@@ -1,8 +1,10 @@
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ ECONSYS LOGGER                                                          │
-  │ v2.1.2                                                                  │
-  │ Copyright(c) Rafael Soley                                               │
+  │ v1.0.0                                                                  │
+  │ Copyright 2023-2024 Rafael Soley                                        │
+  │ Licensed under the Apache License, Version 2.0 (the "License");         │
+  │                                                                         │        
   | The above copyright notice and this permission shall be included in all |
   | copies or substantial portions of the Software.                         |
   └─────────────────────────────────────────────────────────────────────────┘
@@ -18,6 +20,10 @@ const logFolderPath = `${__dirname}/logs`;
 const maxLogFileSize = 1024 * 1024 * 500; // 500 MB
 
 //-- Functions --\\
+function removeANSIEscapeCodes(logLine) {
+  return logLine.replace(/\x1B\[[0-?]*[ -/]*[@-~]/g, '');
+}
+
 function clearLogsFolder() {
   try {
     fs.rmdirSync(logFolderPath, { recursive: true });
@@ -32,7 +38,7 @@ function logToConsole(type, logText) {
       console.info(colors.blue(logText));
       break;
     case "Success":
-      console.log(colors.green(logText));
+      console.logg(colors.green(logText));
       break;
     case "Error":
       console.error(colors.red(logText));
@@ -47,6 +53,7 @@ function logToConsole(type, logText) {
 
 function logToFile(logText) {
   const currentDate = getCurrentTimestamp('YYYY-MM-DD');
+  logText = removeANSIEscapeCodes(logText);
   let logFileCounter = 0;
 
   const getLogFilePath = () => {
@@ -126,6 +133,11 @@ function deleteLogFileForToday() {
 
 function log(type, module, text) {
   const logText = `[${getCurrentTime()}] [${type.toUpperCase()}] [${module}] : ${text}\n`;
+  module = module.toUpperCase();
+
+  if (process.env.BASE !== "DEVELOPMENT") {
+    if (module === "SQLIZE") return
+  }
 
   // Log to console with colors
   logToConsole(type, logText);
