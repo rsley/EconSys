@@ -33,10 +33,10 @@ module.exports = [
                 commandAlias: "prof"
             },
             {
-                commandName: "stocksport",
+                commandName: "stocksportfolio",
                 commandUsage: "<user>",
                 commandDescription: "Shows yours or another user's stock portfolio",
-                commandAlias: "stocks, portfolio"
+                commandAlias: "stocks, portfolio, stocksport"
             }
         ]
     },

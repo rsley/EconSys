@@ -36,6 +36,8 @@ Web Dashboard mainly made using `Discord-Dashboard` by <a href="https://assistan
 - To Lt. Col. Bickford for inspiring me to continue my extracurricular carreer and for being a role model through High School, as well as teaching me Statistics.
 - To the rest of my School's Board for always allowing me to expand my extracurricular activities within the school.
 
+## Env
+
 ### Setup and Installation
 Documentation pending.
 

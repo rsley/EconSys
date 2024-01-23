@@ -1,6 +1,6 @@
 /* 
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │ ECONSYS CORE                                                            │
+  │ ECONSYS CLIENT                                                          │
   │ v1.0.0                                                                  │
   │ Copyright 2023-2024 Rafael Soley                                        │
   │ Licensed under the Apache License, Version 2.0 (the "License");         │
@@ -11,9 +11,10 @@
  */
 
 //-- Imports --\\
-const { Client, IntentsBitField, Partials } = require("discord.js");
+const { Client, IntentsBitField, Partials, ActivityType } = require("discord.js");
 const { join } = require("path");
 const WOK = require("wokcommands");
+const numbers = require("../core/functions/numbers");
 
 //-- Client --\\
 const client = new Client({
@@ -37,15 +38,32 @@ const client = new Client({
 //-- Client Events --\\
 client.once("ready", () => {
   logger("Success", "Core", "Client is ready...")
-  client.user.setActivity("Economics", { type: "WATCHING" });
+  setInterval(() => {
+    const random = Math.floor(Math.random() * 5 + 1);
+
+    let moneyTotal = numbers(config.econ.defaultTotal)
+    moneyTotal = moneyTotal.split(".")[0]
+
+    if (random === 1) {
+      client.user.setActivity("the stock market", { type: ActivityType.Watching });
+    } else if (random === 2) {
+      client.user.setActivity("the economy", { type: ActivityType.Watching });
+    } else if (random === 3) {
+      client.user.setActivity("the news", { type: ActivityType.Watching });
+    } else if (random === 4) {
+      client.user.setActivity(`my ${client.guilds.cache.reduce((a, g) => a+g.memberCount, 0)} users`, { type: ActivityType.Watching });
+    } else if (random === 5) {
+      client.user.setActivity(`my $${moneyTotal}`, { type: ActivityType.Watching });
+    }
+  }, config.client.actInterval)
   client.user.setStatus("online");
 
   new WOK({
     client,
-    commandsDir: join(__dirname, "../runner/commands"),
-    featuresDir: join(__dirname, "../runner/features"),
+    commandsDir: join(__dirname, "./commands"),
+    featuresDir: join(__dirname, "./features"),
     events: {
-      dir: join(__dirname, "../runner/events"),
+      dir: join(__dirname, "./events"),
     },
     mongoUri: process.env.MONGO || "",
     testServers: ["1191120386822250527"],
@@ -59,8 +77,8 @@ client.once("ready", () => {
       dbRequired: 300,
     },
     validations: {
-      syntax: join(__dirname, "../runner/validations", "syntax"),
-      runtime: join(__dirname, "../runner/validations", "runtime"),
+      syntax: join(__dirname, "./validations", "syntax"),
+      runtime: join(__dirname, "./validations", "runtime"),
     },
   });
 });

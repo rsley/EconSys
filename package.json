@@ -1,13 +1,14 @@
 {
   "name": "EconSys",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "src/run.js",
   "repository": "https://github.com/rsley/EconSys",
   "author": "Rafael Soley R. <rafaelsoley.multiple@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@keyv/mongo": "^2.2.8",
     "@keyv/mysql": "^1.7.1",
+    "axios": "^1.6.5",
     "dbd-soft-ui": "^1.7.18-beta.1",
     "discord-dashboard": "^2.3.62",
     "discord.js": "^14.14.1",

@@ -18,8 +18,9 @@ module.exports = async (text, lang) => {
     if (!text) return
     if (!lang) lang = "es"
 
-    let t = await translateG(text, { to: lang })
-    return t
+  let t = await translateG(text, { to: lang })
+  let modifiedT = t.replace(/\./g, '. ');
+    return modifiedT
 }
 module.exports.lang = async (guildId) => {
   let lang = await Handler.fetch(guildId, "lang") || "English"
