@@ -1,12 +1,13 @@
 # <p align="center">EconSys</p>
 A more complex economy system
 - Licensed under the Apache License, Version 2.0
-- Made by Rafael Soley R. ( https://github.com/rsley )
-- Join our <a href="https://rsluxury.xyz/discord">Discord Server</a>
+- Made by Rafael S.R. ( https://github.com/rsley )
 ---
 
+> **EconSys is being *temporarily* dropped! Massive codebase revamp coming soon, thanks to Athena Solutions ™**
+
 ## License Information
-Copyright 2023-2024 Rafael Soley
+Copyright 2023-2024 Rafael S.R.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -30,11 +31,10 @@ Web Dashboard mainly made using `Discord-Dashboard` by <a href="https://assistan
 <br/>I do not take credit for the code in the Dashboard except for the parts which I modified which are not included in the original Discord-Dashboard project. Before reproducing, modifying, or forking this project, you must acquire a <a href="https://assistantscenter.com/discord-dashboard/v2">Software License for Discord-Dashboard.</a><br/><br/>I made *some* modifications to the Dashboard, like those found at `modstore/dbd-soft-ui` and `modstore`; however, the original credits for it go to the ones mentioned below and the rest of the team over at Assistants Center.
 
 ### Special Thanks
-- To my High School Mathematics professor, Miss. Lisa Bickford.
-- To my school's Academic Directors, Angela Jarman and Flor Morado.
-- To my Technology, Innovation, and Robotics professor, Eva Melo.
+- To my High School Mathematics professor, Miss. Bickford.
+- To my Academic Directors, Miss Jarman and Miss Morado.
+- To my Technology, Innovation, and Robotics professor, Miss Melo.
 - To Lt. Col. Bickford for inspiring me to continue my extracurricular carreer and for being a role model through High School, as well as teaching me Statistics.
-- To the rest of my School's Board for always allowing me to expand my extracurricular activities within the school.
 
 ## Env
 
