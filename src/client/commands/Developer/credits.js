@@ -2,7 +2,7 @@
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ ECONSYS GITHUB COMMAND                                                  │
   │ v1.0.0                                                                  │
-  │ Copyright 2023-2024 Rafael Soley                                        │
+  │ Copyright 2023-2024 Rafael S.R.                                        │
   │ Licensed under the Apache License, Version 2.0 (the "License");         │
   │                                                                         │        
   | The above copyright notice and this permission shall be included in all |
@@ -60,13 +60,13 @@ module.exports = {
     updateCooldown,
   }) => {
     let textT =
-      "**Hi! This is EconSys.**\nEconSys is a complex economy system based on the real-life economics principles, ported to a bot that allows you to create your own economy system in your server.\n\n**Developers:**\n- [Rafael Soley](https://github.com/rsley)\n\n**Contributors:**\n- None\n\n**Dashboard:**\nThe Dashboard was made originally by the team at Assistant's Center, modified by the EconSys Team.\n\n**GitHub Repository:**\nEconSys is PUBLIC and Open-Source! https://github.com/rsley/econsys\n\n**Discord Server:**\n[Vanity](https://rsluxury.xyz/discord)\n\n";
+      "**Hi! This is EconSys.**\nEconSys is a complex economy system based on the real-life economics principles, ported to a bot that allows you to create your own economy system in your server.\n\n**Developers:**\n- [Rafael S.R.](https://github.com/rsley)\n\n**Contributors:**\n- None\n\n**Dashboard:**\nThe Dashboard was made originally by the team at Assistant's Center, modified by the EconSys Team.\n\n**GitHub Repository:**\nEconSys is PUBLIC and Open-Source! https://github.com/rsley/econsys\n\n**Discord Server:**\n[Vanity](https://rsluxury.xyz/discord)\n\n";
     let lang = await translate.lang(guild.id);
     if (lang !== "en") textT = await translate(textT, lang);
 
     textT = textT.replace(
-      /\[Rafael Soley\] \(https:\/\/github\.com\/rsley\)/,
-      "[Rafael Soley](https://github.com/rsley)"
+      /\[Rafael S.R.\] \(https:\/\/github\.com\/rsley\)/,
+      "[Rafael S.R.](https://github.com/rsley)"
     );
     textT = textT.replace(
       /\! https:\/\/github\.com\/rsley\/econsys/,

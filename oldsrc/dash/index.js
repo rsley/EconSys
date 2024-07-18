@@ -2,7 +2,7 @@
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ ECONSYS DASHBOARD                                                       │
   │ v1.0.0                                                                  │
-  │ Copyright 2023-2024 Rafael Soley                                        │
+  │ Copyright 2023-2024 Rafael S.R.                                        │
   │ Licensed under the Apache License, Version 2.0 (the "License");         │
   │                                                                         │        
   | The above copyright notice and this permission shall be included in all |
@@ -12,13 +12,15 @@
   Made with Discord-Dashboard by Assistants Center
  */
 
-  //-- Imports --\\
+//-- Imports --\\
 const SoftUI = require("dbd-soft-ui");
 const { port, domain, redirectUri, license } = require("../config").dash;
 
 //-- Dashboard --\\
 let DBD = require("discord-dashboard");
-const Handler = new DBD.Handler(`mysql://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`);
+const Handler = new DBD.Handler(
+  `mysql://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`
+);
 
 //-- Setup --\\
 (async () => {
@@ -47,14 +49,15 @@ const Handler = new DBD.Handler(`mysql://${process.env.DB_USERNAME}:${process.en
         {
           title: "12",
           subtitle: "Modules!",
-          description: "We have 12 modules for you, to enhance your economy to the best it can be.",
+          description:
+            "We have 12 modules for you, to enhance your economy to the best it can be.",
         },
         {
           title: "200+",
           subtitle: "Commands!",
           description: "We have over 200 commands for you!",
-        }
-      ]
+        },
+      ],
     },
     underMaintenanceAccessPage: "/dev-saccess",
     useUnderMaintenance: false,
@@ -76,7 +79,7 @@ const Handler = new DBD.Handler(`mysql://${process.env.DB_USERNAME}:${process.en
           };
         },
       },
-      createdBy: "Rafael Soley",
+      createdBy: "Rafael S.R.",
       websiteTitle: "ECONSYS",
       websiteName: "ECONSYS",
       websiteUrl: "https://rsluxury.xyz",
@@ -85,8 +88,7 @@ const Handler = new DBD.Handler(`mysql://${process.env.DB_USERNAME}:${process.en
       supportServer: "https://rsluxury.xyz/discord",
       colorScheme: "red",
       icons: {
-        favicon:
-          "https://rsluxury.xyz/assets/rs-favi2.ico",
+        favicon: "https://rsluxury.xyz/assets/rs-favi2.ico",
         noGuildIcon:
           "https://pnggrid.com/wp-content/uploads/2021/05/Discord-Logo-Circle-1024x1024.png",
         sidebar: {
@@ -102,19 +104,19 @@ const Handler = new DBD.Handler(`mysql://${process.env.DB_USERNAME}:${process.en
           category: "General",
           title: "Bot ping",
           image: "https://rsluxury.xyz/assets/rs-2.png",
-          footer: "Footer text"
+          footer: "Footer text",
         },
         information: {
-          category: 'Info',
-          title: 'Information',
-          description: 'Description Text',
-          footer: 'Footer Text',
+          category: "Info",
+          title: "Information",
+          description: "Description Text",
+          footer: "Footer Text",
         },
         feeds: {
-          category: 'Category',
-          title: 'Feed Title',
-          description: 'Description Text',
-          footer: 'Footer Text',
+          category: "Category",
+          title: "Feed Title",
+          description: "Description Text",
+          footer: "Footer Text",
         },
         graph: {
           enabled: true,
@@ -145,11 +147,11 @@ const Handler = new DBD.Handler(`mysql://${process.env.DB_USERNAME}:${process.en
       },
       commands: require("./commands"),
     }),
-    settings: require("./settings")
+    settings: require("./settings"),
   });
   Dashboard.init();
 
-  require("../runner/dashbot")(Dashboard)
+  require("../runner/dashbot")(Dashboard);
 
   module.exports = Dashboard;
 })();

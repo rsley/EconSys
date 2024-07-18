@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "src/run.js",
   "repository": "https://github.com/rsley/EconSys",
-  "author": "Rafael Soley R. <rafaelsoley.multiple@gmail.com>",
+  "author": "Rafael S.R. <110256307+rsley@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
     "@keyv/mongo": "^2.2.8",

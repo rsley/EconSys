@@ -2,7 +2,7 @@
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ ECONSYS PROFILE WRAPPER                                                 │
   │ v1.0.0                                                                  │
-  │ Copyright 2023-2024 Rafael Soley                                        │
+  │ Copyright 2023-2024 Rafael S.R.                                        │
   │ Licensed under the Apache License, Version 2.0 (the "License");         │
   │                                                                         │        
   | The above copyright notice and this permission shall be included in all |
@@ -10,7 +10,7 @@
   └─────────────────────────────────────────────────────────────────────────┘
  */
 
-const Profile = require('../../db/models/profile'); 
+const Profile = require("../../db/models/profile");
 
 /**
  * Get the user's profile.
@@ -37,19 +37,30 @@ async function getProfile(id, guildId) {
   }
 
   // Parse the JSON strings into objects
-  profile.dataValues.economicInformation = JSON.parse(profile.dataValues.economicInformation);
+  profile.dataValues.economicInformation = JSON.parse(
+    profile.dataValues.economicInformation
+  );
   profile.dataValues.education = JSON.parse(profile.dataValues.education);
   profile.dataValues.career = JSON.parse(profile.dataValues.career);
-  profile.dataValues.bankingAndInvestments = JSON.parse(profile.dataValues.bankingAndInvestments);
-  profile.dataValues.governmentAndPolitics = JSON.parse(profile.dataValues.governmentAndPolitics);
-  profile.dataValues.internationalInteractions = JSON.parse(profile.dataValues.internationalInteractions);
-  profile.dataValues.businessOwnershipDetails = JSON.parse(profile.dataValues.businessOwnershipDetails);
-  profile.dataValues.economicReports = JSON.parse(profile.dataValues.economicReports);
+  profile.dataValues.bankingAndInvestments = JSON.parse(
+    profile.dataValues.bankingAndInvestments
+  );
+  profile.dataValues.governmentAndPolitics = JSON.parse(
+    profile.dataValues.governmentAndPolitics
+  );
+  profile.dataValues.internationalInteractions = JSON.parse(
+    profile.dataValues.internationalInteractions
+  );
+  profile.dataValues.businessOwnershipDetails = JSON.parse(
+    profile.dataValues.businessOwnershipDetails
+  );
+  profile.dataValues.economicReports = JSON.parse(
+    profile.dataValues.economicReports
+  );
   profile.dataValues.achievements = JSON.parse(profile.dataValues.achievements);
 
   return profile.dataValues;
 }
-
 
 /**
  * Set the user's profile.

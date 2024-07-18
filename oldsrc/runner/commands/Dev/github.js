@@ -2,7 +2,7 @@
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ ECONSYS GITHUB COMMAND                                                  │
   │ v1.0.0                                                                  │
-  │ Copyright 2023-2024 Rafael Soley                                        │
+  │ Copyright 2023-2024 Rafael S.R.                                        │
   │ Licensed under the Apache License, Version 2.0 (the "License");         │
   │                                                                         │        
   | The above copyright notice and this permission shall be included in all |
@@ -57,15 +57,14 @@ module.exports = {
     cancelCooldown,
     updateCooldown,
   }) => {
-    let textT = "**EconSys is an Open-Source Project**\nYou can find the GitHub repository in the following"
-    let lang = await translate.lang(guild.id)
-    if(lang !== "en") textT = await translate(textT, lang)
-    textT = textT + " [link](https://github.com/rsley/econsys)"
+    let textT =
+      "**EconSys is an Open-Source Project**\nYou can find the GitHub repository in the following";
+    let lang = await translate.lang(guild.id);
+    if (lang !== "en") textT = await translate(textT, lang);
+    textT = textT + " [link](https://github.com/rsley/econsys)";
     const embed = new EmbedBuilder()
       .setTitle("GitHub")
-      .setDescription(
-        textT
-      )
+      .setDescription(textT)
       .setColor(require("random-hex-color")())
       .setFooter(config.embed.footer);
 

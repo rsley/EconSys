@@ -2,7 +2,7 @@
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ ECONSYS INDEX GLOBAL                                                    │
   │ v1.0.0                                                                  │
-  │ Copyright 2023-2024 Rafael Soley                                        │
+  │ Copyright 2023-2024 Rafael S.R.                                        │
   │ Licensed under the Apache License, Version 2.0 (the "License");         │
   │                                                                         │        
   | The above copyright notice and this permission shall be included in all |
@@ -20,44 +20,44 @@
   \x1b[35m88.\x1b[0m     \x1b[35mY8b  d8\x1b[0m \x1b[35m\`8b  d8'\x1b[0m \x1b[35m88  V888\x1b[0m \x1b[35mdb   8D\x1b[0m    \x1b[35m88\x1b[0m    \x1b[35mdb   8D\x1b[0m
   \x1b[36mY88888P\x1b[0m  \x1b[36m\`Y88P'\x1b[0m  \x1b[36m\`Y88P'\x1b[0m  \x1b[36mVP   V8P\x1b[0m \x1b[36m\`8888Y'\x1b[0m    \x1b[36mYP\x1b[0m    \x1b[36m\`8888Y'\x1b[0m
 
-    Copyright (c) Rafael Soley
+    Copyright (c) Rafael S.R.
     Version v.1.0.0
-  `); 
+  `);
 
-if (process.env.DEP && process.env.DEP.toUpperCase() === "DEVELOPMENT") {
-  require("./core/logger").deleteLogFileForToday()
-}
-  
-  global.console.logg = console.log
-  global.console.log = (...args) => {
-    logger("Debug", "Console", args.join(" "))
+  if (process.env.DEP && process.env.DEP.toUpperCase() === "DEVELOPMENT") {
+    require("./core/logger").deleteLogFileForToday();
   }
-})()
+
+  global.console.logg = console.log;
+  global.console.log = (...args) => {
+    logger("Debug", "Console", args.join(" "));
+  };
+})();
 
 //-- Imports --\\
 require("dotenv/config");
 const logger = require("./core/logger");
 const client = require("./core/main");
 const config = require("./config");
-const api = require("./core/api")
-const translate = require("./runner/functions/translate")
-const Dashboard = require("./dash")
+const api = require("./core/api");
+const translate = require("./runner/functions/translate");
+const Dashboard = require("./dash");
 const database = require("./db");
-const mongodb = require("./db/mongo")
+const mongodb = require("./db/mongo");
 
 //-- Global Variables --\\
 global.logger = logger;
 global.database = database;
 global.client = client;
-global.dclient = client; // double instance 
+global.dclient = client; // double instance
 global.config = config;
-global.api = api
-global.translate = translate
-global.Handler = Dashboard.Handler
+global.api = api;
+global.translate = translate;
+global.Handler = Dashboard.Handler;
 
 //-- Events --\\
-require("./runner/dashbot")
-  
+require("./runner/dashbot");
+
 //-- Start --\\
 logger("Info", "Index", "Starting the core...");
 client.login(process.env.TOKEN);

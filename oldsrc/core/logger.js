@@ -2,7 +2,7 @@
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ ECONSYS LOGGER                                                          │
   │ v1.0.1                                                                  │
-  │ Copyright 2023-2024 Rafael Soley                                        │
+  │ Copyright 2023-2024 Rafael S.R.                                        │
   │ Licensed under the Apache License, Version 2.0 (the "License");         │
   │                                                                         │        
   | The above copyright notice and this permission shall be included in all |
@@ -14,7 +14,7 @@
 const fs = require("fs");
 const colors = require("colors");
 const moment = require("moment-timezone");
-const axios = require('axios');
+const axios = require("axios");
 
 //-- Constants --\\
 const logFolderPath = `${__dirname}/logs`;
@@ -22,7 +22,7 @@ const maxLogFileSize = 1024 * 1024 * 500; // 500 MB
 
 //-- Functions --\\
 function removeANSIEscapeCodes(logLine) {
-  return logLine.replace(/\x1B\[[0-?]*[ -/]*[@-~]/g, '');
+  return logLine.replace(/\x1B\[[0-?]*[ -/]*[@-~]/g, "");
 }
 
 function clearLogsFolder() {
@@ -53,12 +53,14 @@ function logToConsole(type, logText) {
 }
 
 function logToFile(logText) {
-  const currentDate = getCurrentTimestamp('YYYY-MM-DD');
+  const currentDate = getCurrentTimestamp("YYYY-MM-DD");
   logText = removeANSIEscapeCodes(logText);
   let logFileCounter = 0;
 
   const getLogFilePath = () => {
-    return `${logFolderPath}/${currentDate}${logFileCounter > 0 ? `-${logFileCounter}` : ''}.log`;
+    return `${logFolderPath}/${currentDate}${
+      logFileCounter > 0 ? `-${logFileCounter}` : ""
+    }.log`;
   };
 
   const logFilePath = getLogFilePath();
@@ -66,7 +68,7 @@ function logToFile(logText) {
   // Check if the log file exists
   if (!fs.existsSync(logFilePath)) {
     // Create the log file if it doesn't exist
-    fs.writeFileSync(logFilePath, '');
+    fs.writeFileSync(logFilePath, "");
   }
 
   // Check log file size before writing
@@ -116,21 +118,23 @@ function getCurrentTimestamp(format) {
 }
 
 function deleteLogFileForToday() {
-  const currentDate = getCurrentTimestamp('YYYY-MM-DD');
-      const logFilePath = `${logFolderPath}/${currentDate}.log`;
-  
-      // Check if the log file exists before attempting to delete
-      if (fs.existsSync(logFilePath)) {
-        try {
-          fs.unlinkSync(logFilePath);
-          console.log(`Log file for ${currentDate} deleted.`);
-        } catch (err) {
-          console.error(`Error deleting log file: ${err}`);
-        }
-      } else {
-        console.log(`Log file for ${currentDate} does not exist. Skipping deletion.`);
-      }
+  const currentDate = getCurrentTimestamp("YYYY-MM-DD");
+  const logFilePath = `${logFolderPath}/${currentDate}.log`;
+
+  // Check if the log file exists before attempting to delete
+  if (fs.existsSync(logFilePath)) {
+    try {
+      fs.unlinkSync(logFilePath);
+      console.log(`Log file for ${currentDate} deleted.`);
+    } catch (err) {
+      console.error(`Error deleting log file: ${err}`);
+    }
+  } else {
+    console.log(
+      `Log file for ${currentDate} does not exist. Skipping deletion.`
+    );
   }
+}
 
 function log(type, module, text) {
   let time = getCurrentTime();
@@ -138,7 +142,7 @@ function log(type, module, text) {
   module = module.toUpperCase();
 
   if (process.env.BASE !== "DEVELOPMENT") {
-    if (module === "SQLIZE") return
+    if (module === "SQLIZE") return;
   }
 
   // Log to console with colors

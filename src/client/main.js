@@ -2,7 +2,7 @@
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ ECONSYS CLIENT                                                          │
   │ v1.0.0                                                                  │
-  │ Copyright 2023-2024 Rafael Soley                                        │
+  │ Copyright 2023-2024 Rafael S.R.                                        │
   │ Licensed under the Apache License, Version 2.0 (the "License");         │
   │                                                                         │        
   | The above copyright notice and this permission shall be included in all |
@@ -11,7 +11,12 @@
  */
 
 //-- Imports --\\
-const { Client, IntentsBitField, Partials, ActivityType } = require("discord.js");
+const {
+  Client,
+  IntentsBitField,
+  Partials,
+  ActivityType,
+} = require("discord.js");
 const { join } = require("path");
 const WOK = require("wokcommands");
 const numbers = require("../core/functions/numbers");
@@ -37,25 +42,35 @@ const client = new Client({
 
 //-- Client Events --\\
 client.once("ready", () => {
-  logger("Success", "Core", "Client is ready...")
+  logger("Success", "Core", "Client is ready...");
   setInterval(() => {
     const random = Math.floor(Math.random() * 5 + 1);
 
-    let moneyTotal = numbers(config.econ.defaultTotal)
-    moneyTotal = moneyTotal.split(".")[0]
+    let moneyTotal = numbers(config.econ.defaultTotal);
+    moneyTotal = moneyTotal.split(".")[0];
 
     if (random === 1) {
-      client.user.setActivity("the stock market", { type: ActivityType.Watching });
+      client.user.setActivity("the stock market", {
+        type: ActivityType.Watching,
+      });
     } else if (random === 2) {
       client.user.setActivity("the economy", { type: ActivityType.Watching });
     } else if (random === 3) {
       client.user.setActivity("the news", { type: ActivityType.Watching });
     } else if (random === 4) {
-      client.user.setActivity(`my ${client.guilds.cache.reduce((a, g) => a+g.memberCount, 0)} users`, { type: ActivityType.Watching });
+      client.user.setActivity(
+        `my ${client.guilds.cache.reduce(
+          (a, g) => a + g.memberCount,
+          0
+        )} users`,
+        { type: ActivityType.Watching }
+      );
     } else if (random === 5) {
-      client.user.setActivity(`my $${moneyTotal}`, { type: ActivityType.Watching });
+      client.user.setActivity(`my $${moneyTotal}`, {
+        type: ActivityType.Watching,
+      });
     }
-  }, config.client.actInterval)
+  }, config.client.actInterval);
   client.user.setStatus("online");
 
   new WOK({
@@ -68,9 +83,7 @@ client.once("ready", () => {
     mongoUri: process.env.MONGO || "",
     testServers: ["1191120386822250527"],
     botOwners: config.owners,
-    disabledDefaultCommands: [
-      "customcommand"
-    ],
+    disabledDefaultCommands: ["customcommand"],
     cooldownConfig: {
       errorMessage: "Please wait {TIME} before doing that again.",
       botOwnersBypass: false,
